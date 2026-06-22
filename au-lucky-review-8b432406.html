@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>澳洲幸运10 · 再次遇见你</title>
+  <style>
+    /* 全局重置 & 字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.7;
+      color: #2c2b2b;
+      background: linear-gradient(145deg, #fbe9d7 0%, #fad6c5 40%, #f7cbb2 80%, #f0bfa7 100%);
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrapper {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* 主卡片 — 暖色白基座 */
+    .hero-card {
+      background: rgba(255, 250, 245, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 40px 40px 24px 24px;
+      padding: 2.4rem 2rem 2.8rem;
+      box-shadow: 0 12px 30px rgba(150, 90, 50, 0.18);
+      transition: box-shadow 0.2s ease;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-card:hover {
+      box-shadow: 0 18px 40px rgba(140, 80, 40, 0.22);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #5f3e2a;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #8b6b55;
+      border-left: 5px solid #dd9c7a;
+      padding-left: 1rem;
+      margin: 0.8rem 0 1.8rem 0;
+    }
+
+    /* 主视觉微区 */
+    .visual-symbol {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem 1.6rem;
+      margin: 1rem 0 1.6rem;
+      padding: 0.8rem 0;
+      border-top: 1px dashed #e7cdbb;
+      border-bottom: 1px dashed #e7cdbb;
+    }
+
+    .visual-symbol span {
+      background: #f5e3d6;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #6b4f3b;
+      letter-spacing: 0.02em;
+    }
+
+    .visual-symbol .highlight {
+      background: #dc9c7c;
+      color: #fffaf5;
+    }
+
+    /* 栅格卡片 — 用途 + 人群 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .info-card {
+      background: #fffcf9;
+      border-radius: 28px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 4px 16px rgba(175, 125, 85, 0.08);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(150, 90, 50, 0.12);
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #5f3e2a;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-card p {
+      font-size: 0.98rem;
+      color: #4c3a2d;
+      margin: 0;
+    }
+
+    .info-card ul {
+      list-style: none;
+      margin: 0.6rem 0 0;
+      padding: 0;
+    }
+
+    .info-card li {
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+      color: #3d2e23;
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .info-card li::before {
+      content: "·";
+      font-weight: 700;
+      color: #c38668;
+      margin-right: 0.3rem;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #fffcf9;
+      border-radius: 28px;
+      padding: 1.6rem 1.8rem;
+      margin: 1.2rem 0 1rem;
+      box-shadow: 0 4px 14px rgba(160, 100, 60, 0.06);
+      font-size: 1rem;
+      color: #3f3228;
+    }
+
+    .link-paragraph a {
+      color: #9d6447;
+      text-decoration: none;
+      font-weight: 500;
+      background: #f3e2d6;
+      padding: 0.15rem 0.8rem;
+      border-radius: 40px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .link-paragraph a:hover {
+      background: #dba885;
+      color: #2b1d15;
+    }
+
+    /* FAQ 摘要 — 简洁问答 */
+    .faq-mini {
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .faq-item {
+      background: #fffcf9;
+      border-radius: 20px;
+      padding: 0.9rem 1.4rem;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 2px 8px rgba(150, 90, 50, 0.05);
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #5f3e2a;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      margin: 0.1rem 0 0;
+      font-size: 0.92rem;
+      color: #4e3b2e;
+    }
+
+    /* 底部收藏/再访提示 */
+    .return-note {
+      background: rgba(255, 245, 235, 0.7);
+      border-radius: 60px;
+      padding: 0.9rem 1.8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #4b3526;
+      border: 1px solid #eccfbe;
+      margin: 1.8rem 0 0.6rem;
+    }
+
+    .return-note span {
+      background: #ddb096;
+      color: #2d1f17;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+      margin: 0 0.2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      body { padding: 1.2rem 1rem; }
+      .hero-card { padding: 1.8rem 1.2rem; }
+      h1 { font-size: 1.8rem; }
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .visual-symbol { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-card { border-radius: 28px; padding: 1.4rem 1rem; }
+      .info-card { padding: 1.2rem; }
+      .link-paragraph { padding: 1.2rem; }
+      .faq-item { padding: 0.7rem 1rem; }
+      .return-note { font-size: 0.88rem; padding: 0.7rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="hero-card">
+    <h1>✨ 澳洲幸运10 · 存下书签，常回来</h1>
+    <div class="subhead">从偶然遇见变成习惯性关注的角落</div>
+
+    <!-- 主视觉暖色小标签 -->
+    <div class="visual-symbol">
+      <span>🎯 再次访问</span>
+      <span class="highlight">📌 收藏即心安</span>
+      <span>🗓️ 持续节奏</span>
+      <span>☕ 日常陪伴</span>
+    </div>
+
+    <!-- 信息卡片网格：用途 & 适合人群 -->
+    <div class="card-grid">
+      <div class="info-card">
+        <h3>📋 可以这样用</h3>
+        <ul>
+          <li>收藏页面，下次随手打开</li>
+          <li>了解节奏与历史动态</li>
+          <li>搭配个人闲暇时段浏览</li>
+          <li>作为兴趣话题和朋友聊聊</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>👤 也许适合你</h3>
+        <ul>
+          <li>喜欢规律性参考信息的朋友</li>
+          <li>对数字走势略感兴趣的人</li>
+          <li>习惯用书签整理兴趣页的用户</li>
+          <li>偏好轻松、不赶节奏的浏览体验</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 — 嵌入句子，不使用入口/进入等词 -->
+    <div class="link-paragraph">
+      如果你之前偶然到过这个站点，或许可以试试把它加入收藏夹。
+      我常把 <a href="https://au-lucky.com">澳洲幸运10</a> 放在书签栏的某个文件夹里，
+      得空时点开扫一眼，没什么压力，像翻翻熟悉的老地方。
+      不用特意做什么，页面本身保持着稳定的更新，
+      适合当作一个安静的参考坐标。
+    </div>
+
+    <!-- FAQ 摘要 — 围绕收藏/再次访问 -->
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>📎 为什么要收藏这个页面？</strong>
+        <p>收藏相当于给自己留一个从容的入口，下次再来不用重新搜索，尤其适合那些你愿意反复看但不想记链接的站点。</p>
+      </div>
+      <div class="faq-item">
+        <strong>🗂️ 怎么保持关注又不觉得累？</strong>
+        <p>把页面放在书签里，隔几天点开一次就行，不需要提醒，也不需要订阅。随意浏览，找到自己的节奏。</p>
+      </div>
+      <div class="faq-item">
+        <strong>🧭 如果隔了很久再来，内容会陌生吗？</strong>
+        <p>不会。页面保持着相对一致的结构，主要信息一目了然。就算间隔几周，回来依然认得出。</p>
+      </div>
+    </div>
+
+    <!-- 再次访问 & 收藏提示 -->
+    <div class="return-note">
+      ⭐ 把 <span>澳洲幸运10</span> 放进收藏夹 · 下次想逛的时候，它就在那
+    </div>
+  </div>
+  <!-- 最外层卡片结束 -->
+</div>
+<!-- page-wrapper 结束 -->
+</body>
+</html>
